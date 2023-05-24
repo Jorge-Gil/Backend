@@ -241,3 +241,25 @@ export const getUsuarios = async (req, res) => {
   }
 }
 
+export const getUsuario = async (req, res) => {
+try{
+  // const { usuarioId } = req.params;
+ const usuario= await Usuario.findById(req.params.usuarioId)
+ 
+ 
+
+    if (!usuario) {
+     
+      return res.status(404).json({ message: "Usuario no encontrado" });
+    }
+
+
+    res.status(200).json(usuario);
+  
+} catch (error) {
+
+  console.log(error);
+  res.status(500).json({ message: "Error al obtener el usuario" });
+}
+
+}
