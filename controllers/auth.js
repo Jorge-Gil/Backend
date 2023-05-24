@@ -160,6 +160,39 @@ export const deletecomentario = async (req, res) => {
   }
 };
 
+export const getComentarios = async (req, res) => {
+  try {
+    const comentarios = await Comentario.find();
+    res.status(200).json(comentarios);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Error al obtener los comentarios" });
+
+  }
+}
+
+export const getComentario = async (req, res) => {
+  try {
+    const comentario= await Comentario.findById(req.params.comentarioId)
+ 
+ 
+
+    if (!comentario) {
+     
+      return res.status(404).json({ message: "Comentario no encontrado" });
+    }
+
+
+    res.status(200).json(comentario);
+  
+} catch (error) {
+
+  console.log(error);
+  res.status(500).json({ message: "Error al obtener el Comentario" });
+}
+}
+
+
 export const crearPalabraClave = async (req, res) => {
 
   try {

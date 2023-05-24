@@ -10,6 +10,8 @@ import { getPalabrasClave } from "../controllers/auth.js";
 import { deletePalabraClave } from "../controllers/auth.js";
 import { updatePalabraClave } from "../controllers/auth.js";
 import { getUsuario } from "../controllers/auth.js";
+import { getComentarios } from "../controllers/auth.js";
+import { getComentario } from "../controllers/auth.js";
 
 const router = express.Router();
 
@@ -24,6 +26,8 @@ router.get("/getPalabrasClave", getPalabrasClave);
 router.delete("/deletePalabraClave/:palabraClaveId", deletePalabraClave);
 router.put("/updatePalabraClave/:palabraClaveId", updatePalabraClave);
 router.get("/getUsuario/:usuarioId", getUsuario);
+router.get("/getComentarios", getComentarios);
+router.get("/getComentario/:comentarioId", getComentario);
 
 
 export default router;
